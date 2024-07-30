@@ -7,6 +7,12 @@ export const getTask = createAction(
         tasks
     }))
 
+export const getTaskById = createAction(
+    '[Task] Get Task By Id',
+    (id: number) => ({
+        id
+    }))
+
 export const addTask = createAction(
     '[Task] Add Task',
     (task: Task) => ({
@@ -27,3 +33,15 @@ export const updateTask = createAction(
         task
     })
 );
+
+export const markTaskAsComplete = createAction(
+    '[All Shows] Mark Task as Completed',
+    (id: number) => ({
+        id
+    }));
+
+export const unmarkTaskAsComplete = createAction(
+    '[All Shows] Unmark Task as Completed',
+    (id: number) => ({
+        id
+    }));

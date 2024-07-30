@@ -1,9 +1,9 @@
 import { createReducer, createSelector, on, Action } from '@ngrx/store';
-import { addTask, getTask, deleteTask, updateTask } from './task.actions';
+import { addTask, getTask, deleteTask, updateTask, markTaskAsComplete, unmarkTaskAsComplete, getTaskById } from './task.actions';
 import { Task } from '../models/task.model';
 
 
-const initialState : Task[] = [
+const initialState: Task[] = [
     {
         "id": 1,
         "title": "Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
@@ -38,20 +38,35 @@ const initialState : Task[] = [
 
 export const taskReducer = createReducer<Task[]>(
     initialState,
-    on(getTask,(state, {tasks}) => [...tasks]),
+    on(getTask, (state, { tasks }) => [...tasks]),
+    on(getTaskById, (state, { id }) =>
+        state.filter(task =>
+            task.id === id)
+    ),
     on(addTask, (state, { task }) => [...state, task]),
     on(deleteTask, (state, { id }) =>
         state.filter((task) => task.id !== id)
-      ),
-      on(updateTask, (state, { task }) => {
-        const tasks = state.map((t) => {
-          if (t.id === task.id) {
-            return task;
-          }
-          return t;
-        });
-        return tasks;
-      })
+    ),
+    // on(updateTask, (state, { task }) => {
+
+
+    //     const tasks = state.map((t) => t.id === task.id ? task : t);
+    //     return tasks;
+    // }),
+
+    on(updateTask, (state, { task }) => (
+        state.map((t) => t.id === task.id ? task : t)
+    )),
+    on(markTaskAsComplete, (state, { id }) =>
+        state.map(task =>
+            task.id === id ? { ...task, completed: true } : task
+        )
+    ),
+    on(unmarkTaskAsComplete, (state, { id }) =>
+        state.map(task =>
+            task.id === id ? { ...task, completed: false } : task
+        )
+    ),
 
 )
 
