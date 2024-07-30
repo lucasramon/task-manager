@@ -1,5 +1,5 @@
 import { createReducer, createSelector, on } from '@ngrx/store';
-import { addTask, getTask } from './task.actions';
+import { addTask, getTask, deleteTask, updateTask } from './task.actions';
 import { Task } from '../models/task.model';
 
 
@@ -39,7 +39,19 @@ const initialState : Task[] = [
 export const taskReducer = createReducer(
     initialState,
     on(getTask,(state, {tasks}) => [...tasks]),
-    on(addTask, (state, { task }) => [...state, task])
+    on(addTask, (state, { task }) => [...state, task]),
+    on(deleteTask, (state, { id }) =>
+        state.filter((task) => task.id !== id)
+      ),
+      on(updateTask, (state, { task }) => {
+        const tasks = state.map((t) => {
+          if (t.id === task.id) {
+            return task;
+          }
+          return t;
+        });
+        return tasks;
+      })
 
 )
 

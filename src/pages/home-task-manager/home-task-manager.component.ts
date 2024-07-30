@@ -6,7 +6,7 @@ import { Task } from '../../shared/models/task.model';
 import { taskSelector } from '../../shared/services/task.selectors';
 import { AppState } from '../../shared/interfaces/task.interface';
 import { Store } from '@ngrx/store';
-import { addTask } from '../../shared/services/task.actions';
+import { addTask, updateTask, deleteTask } from '../../shared/services/task.actions';
 import { AsyncPipe } from '@angular/common';
 @Component({
   selector: 'app-home-task-manager',
@@ -32,12 +32,12 @@ export class HomeTaskManagerComponent {
     this.store.dispatch(addTask( newTask ));
   }
 
-  // updateTask(task: Task) {
-  //   const updatedTask: Task = { ...task, title: 'Updated Task', description: 'This task has been updated.' };
-  //   this.store.dispatch(updateTask({ task: updatedTask }));
-  // }
+  updateTask(task: Task) {
+    const updatedTask: Task = { ...task, title: 'Updated Task', description: 'This task has been updated.' };
+    this.store.dispatch(updateTask(updatedTask));
+  }
 
-  // deleteTask(id: number) {
-  //   this.store.dispatch(deleteTask({ id }));
-  // }
+  deleteTask(id: number) {
+    this.store.dispatch(deleteTask(id ));
+  }
 }
