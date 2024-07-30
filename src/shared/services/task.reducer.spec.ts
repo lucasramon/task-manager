@@ -1,9 +1,13 @@
-import { createReducer, createSelector, on, Action } from '@ngrx/store';
-import { addTask, getTask, deleteTask, updateTask } from './task.actions';
+import {taskReducer} from './task.reducer';
+import {
+  getTask,
+  addTask,
+  updateTask,
+  deleteTask
+} from './task.actions';
 import { Task } from '../models/task.model';
 
-
-const initialState : Task[] = [
+const  initialState  = [
     {
         "id": 1,
         "title": "Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
@@ -34,26 +38,91 @@ const initialState : Task[] = [
         "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
         "completed": false
     }
-]
+];
 
-export const taskReducer = createReducer<Task[]>(
-    initialState,
-    on(getTask,(state, {tasks}) => [...tasks]),
-    on(addTask, (state, { task }) => [...state, task]),
-    on(deleteTask, (state, { id }) =>
-        state.filter((task) => task.id !== id)
-      ),
-      on(updateTask, (state, { task }) => {
-        const tasks = state.map((t) => {
-          if (t.id === task.id) {
-            return task;
-          }
-          return t;
+describe('ShowsReducer', () => {
+    describe('unknown action', () => {
+      it('should return the default state', () => {
+
+        const action = {
+          type: 'Unknown'
+        };
+        const state = taskReducer(initialState, action);
+  
+        expect(state).toBe(initialState);
+      });
+    });
+
+    describe('getTask action', () => {
+        it('should update the state in an immutable way', () => {
+          const newState: Task[] = [
+            {
+              id: 1,
+              title: 'Test',
+              description: 'Description',
+              completed: false
+            }
+          ];
+          const action = getTask(newState);
+          const state = taskReducer(initialState, action);
+    
+          expect(state).toEqual(newState);
+          expect(state).not.toBe(newState);
         });
-        return tasks;
-      })
-
-)
+      });
 
 
+      describe('updateTask action', () => {
+        it('should update the state in an immutable way', () => {
+          const initialState: Task[] = [
+            {
+              id: 1,
+              title: 'Test',
+              description: 'Description',
+              completed: true
+            }
+          ];
 
+          const updatedTask: Task = { ...initialState[0], title: 'Updated Task', description: 'This task has been updated.' };
+
+          const action = updateTask(updatedTask);
+          const state = taskReducer(initialState, action);
+    
+          expect(state).not.toBe(initialState);
+  
+        })});
+
+
+      describe('deleteTask action', () => {
+        it('should update the state in an immutable way', () => {
+          const initialState: Task[] = [
+            {
+              id: 1,
+              title: 'Test',
+              description: 'Description',
+              completed: true
+            }
+          ];
+          const action = deleteTask(1);
+          const state = taskReducer(initialState, action);
+    
+          expect(state.length).toEqual(0);
+        });
+    
+        it('should not update the state when showId does not exist', () => {
+            const initialState: Task[] = [
+                {
+                  id: 1,
+                  title: 'Test',
+                  description: 'Description',
+                  completed: true
+                }
+              ];
+              const action = deleteTask(2);
+              const state = taskReducer(initialState, action);
+    
+          expect(state.length).toEqual(1);
+        });
+      });
+
+})
