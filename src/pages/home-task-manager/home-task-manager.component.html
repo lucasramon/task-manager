@@ -3,9 +3,12 @@
 
 @for ( task of tasks$ | async; track $index) {
     <h3>{{ task.title }}</h3>
-    <p>{{ task.description }}</p>
+    <p>{{ task.completed }}</p>
     <button (click)="updateTask(task)">Update</button>
     <button (click)="deleteTask(task.id)">Delete</button>
+    <button (click)="markAsComplete(task.id)">markAsComplete</button>
+    <button (click)="unmarkAsComplete(task.id)">unmarkAsComplete</button>
+
 }
 
   <button (click)="addNewTask()">Add New Task</button>

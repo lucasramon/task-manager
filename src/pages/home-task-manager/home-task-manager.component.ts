@@ -6,7 +6,7 @@ import { Task } from '../../shared/models/task.model';
 import { taskSelector } from '../../shared/services/task.selectors';
 import { AppState } from '../../shared/interfaces/task.interface';
 import { Store } from '@ngrx/store';
-import { addTask, updateTask, deleteTask } from '../../shared/services/task.actions';
+import { addTask, updateTask, deleteTask, markTaskAsComplete, unmarkTaskAsComplete } from '../../shared/services/task.actions';
 import { AsyncPipe } from '@angular/common';
 @Component({
   selector: 'app-home-task-manager',
@@ -38,6 +38,14 @@ export class HomeTaskManagerComponent {
   }
 
   deleteTask(id: number) {
-    this.store.dispatch(deleteTask(id ));
+    this.store.dispatch(deleteTask(id));
+  }
+
+  markAsComplete(id: number) {
+    this.store.dispatch(markTaskAsComplete(id));
+  }
+
+  unmarkAsComplete(id: number) {
+    this.store.dispatch(unmarkTaskAsComplete(id));
   }
 }

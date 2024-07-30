@@ -47,12 +47,6 @@ export const taskReducer = createReducer<Task[]>(
     on(deleteTask, (state, { id }) =>
         state.filter((task) => task.id !== id)
     ),
-    // on(updateTask, (state, { task }) => {
-
-
-    //     const tasks = state.map((t) => t.id === task.id ? task : t);
-    //     return tasks;
-    // }),
 
     on(updateTask, (state, { task }) => (
         state.map((t) => t.id === task.id ? task : t)
