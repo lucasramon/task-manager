@@ -7,7 +7,7 @@ import {
     markTaskAsComplete,
     unmarkTaskAsComplete
 } from './task.actions';
-import { Task } from '../models/task.model';
+import { Task } from '../interfaces/task.interface';
 
 const completedInitialState: Task[] = [
     {
@@ -65,16 +65,16 @@ describe('ShowsReducer', () => {
     describe('addTask action', () => {
         it('should update the state in an immutable way', () => {
 
-            const newTask: Task = 
-                {
-                    id: 1,
-                    title: 'Test',
-                    description: 'Description',
-                    completed: false
-                };
+            const newTask: Task =
+            {
+                id: 1,
+                title: 'Test',
+                description: 'Description',
+                completed: false
+            };
 
-                const action = getTask(completedInitialState);
-                const currentState = taskReducer(completedInitialState, action);
+            const action = getTask(completedInitialState);
+            const currentState = taskReducer(completedInitialState, action);
 
 
             const addAction = addTask(newTask);

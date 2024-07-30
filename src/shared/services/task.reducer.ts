@@ -1,6 +1,6 @@
 import { createReducer, createSelector, on, Action } from '@ngrx/store';
 import { addTask, getTask, deleteTask, updateTask, markTaskAsComplete, unmarkTaskAsComplete, getTaskById } from './task.actions';
-import { Task } from '../models/task.model';
+import { Task } from '../interfaces/task.interface';
 
 
 const initialState: Task[] = [
@@ -22,18 +22,6 @@ const initialState: Task[] = [
         "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
         "completed": false
     },
-    {
-        "id": 4,
-        "title": "Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
-        "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
-        "completed": true
-    },
-    {
-        "id": 5,
-        "title": "In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
-        "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
-        "completed": false
-    }
 ]
 
 export const taskReducer = createReducer<Task[]>(

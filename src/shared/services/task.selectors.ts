@@ -1,5 +1,5 @@
 import { createSelector } from "@ngrx/store";
-import { AppState } from '../interfaces/task.interface';
+import { AppState } from '../interfaces/appState.interface';
 
 export const taskSelector = createSelector(
     (state: AppState) => state.tasks,

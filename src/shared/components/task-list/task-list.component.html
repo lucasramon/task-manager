@@ -1,1 +1,8 @@
-<p>task-list works!</p>
+@for ( task of tasks$ | async; track $index) {
+<app-task-item [task]="task" (clickButtonEvent)="buttonClickHandle($event)"></app-task-item>
+
+}
+
+
+
+  <app-task-form (formCompleteEvent)="addNewTask($event)"></app-task-form>

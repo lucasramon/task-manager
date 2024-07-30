@@ -1,1 +1,7 @@
-<p>task-item works!</p>
+<h3>{{ task.title }}</h3>
+<p>{{ task.completed }}</p>
+<p>{{ task.id }}</p>
+
+<button (click)="onButtonClick('delete',task.id)">Delete</button>
+<button (click)="onButtonClick('markComplete',task.id)">markComplete</button>
+<button (click)="onButtonClick('unmarkComplete',task.id)">unmarkComplete</button>

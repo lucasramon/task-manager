@@ -1,4 +1,4 @@
-import { Task } from '../models/task.model';
+import { Task } from '../interfaces/task.interface';
 import { taskSelector, selectTaskById } from './task.selectors'; 
 
 const initialState: Task[] = [
