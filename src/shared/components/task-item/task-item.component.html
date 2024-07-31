@@ -1,7 +1,11 @@
-<h3>{{ task.title }}</h3>
-<p>{{ task.completed }}</p>
-<p>{{ task.id }}</p>
-
-<button (click)="onButtonClick('delete',task.id)">Delete</button>
-<button (click)="onButtonClick('markComplete',task.id)">markComplete</button>
-<button (click)="onButtonClick('unmarkComplete',task.id)">unmarkComplete</button>
+<span>
+    <span class="task-item-buttons text-success"
+        (click)="task.completed ? onButtonClick('unmarkComplete',task.id): onButtonClick('markComplete',task.id)">
+        <i [ngClass]="{'fa-solid fa-circle-check':task.completed, 'fa-regular fa-circle':!task.completed}">
+        </i>
+    </span>
+    {{task.title}}
+    <span class="task-item-buttons float-end text-secondary" (click)="onButtonClick('delete',task.id)">
+        <i class="fa-solid fa-trash-can"></i>
+    </span>
+</span>

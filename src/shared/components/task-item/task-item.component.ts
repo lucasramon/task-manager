@@ -4,10 +4,11 @@ import { buttonPayload } from '../../interfaces/buttonPayload.interface';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../interfaces/appState.interface';
 import { updateTask } from '../../services/task.actions';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-task-item',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.css'
 })
