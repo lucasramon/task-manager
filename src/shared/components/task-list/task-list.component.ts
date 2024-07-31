@@ -20,23 +20,10 @@ export class TaskListComponent {
   constructor(private store: Store<AppState>) { }
 
   addNewTask(payload: Task) {
-    
-    this.store.select(taskSelector).subscribe(item => {
-      const itemForSort = [...item]
-      // itemForSort.sort((a, b) => b.id - a.id);
-
-      const max = itemForSort[0].id;
-      payload.id = 23
-      
-      this.store.dispatch(addTask(payload));
-    })
-
+    this.store.dispatch(addTask(payload));
   }
 
-  updateTask(task: Task) {
-    const updatedTask: Task = { ...task, title: 'Updated Task', description: 'This task has been updated.' };
-    this.store.dispatch(updateTask(updatedTask));
-  }
+
 
 
   buttonClickHandle(payload: buttonPayload) {

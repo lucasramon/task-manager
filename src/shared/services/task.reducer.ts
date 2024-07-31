@@ -1,6 +1,7 @@
 import { createReducer, createSelector, on, Action } from '@ngrx/store';
 import { addTask, getTask, deleteTask, updateTask, markTaskAsComplete, unmarkTaskAsComplete, getTaskById } from './task.actions';
 import { Task } from '../interfaces/task.interface';
+import { state } from '@angular/animations';
 
 
 const initialState: Task[] = [
@@ -22,7 +23,16 @@ const initialState: Task[] = [
         "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
         "completed": false
     },
+
 ]
+
+const getNewTaskId = (state: Task[]) => {
+    const itemForSort = [...state]
+    itemForSort.sort((a, b) => b.id - a.id);
+    const newTaskId = itemForSort[0].id + 1;   
+
+    return newTaskId
+}
 
 export const taskReducer = createReducer<Task[]>(
     initialState,
@@ -31,7 +41,10 @@ export const taskReducer = createReducer<Task[]>(
         state.filter(task =>
             task.id === id)
     ),
-    on(addTask, (state, { task }) => [...state, task]),
+    on(addTask, (state, { task }) =>{
+        return [...state, {...task, id : getNewTaskId(state)}]
+    } ),
+
     on(deleteTask, (state, { id }) =>
         state.filter((task) => task.id !== id)
     ),
