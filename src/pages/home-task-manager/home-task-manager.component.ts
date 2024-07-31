@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TaskListComponent } from "../../shared/components/task-list/task-list.component";
+import { TaskListComponent } from "../../features/task-list/task-list.component";
 @Component({
   selector: 'app-home-task-manager',
   standalone: true,
