@@ -9,10 +9,18 @@
                     <app-task-list></app-task-list>
                 </div>
                 <div class="card-footer text-center bg-white py-4 border-0">
-                    <button type="button" class="add-button btn btn-outline-secondary  btn-lg rounded-pill"> <i class="fa-solid fa-plus"></i> Adicionar Tarefa </button>
-
+                    <button type="button" class="add-button btn btn-outline-secondary btn-lg rounded-pill"  (click)="dialog.showModal()"> <i class="fa-solid fa-plus"></i> Adicionar Tarefa </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<dialog #dialog>
+    <app-task-form (formCompleteEvent)="addNewTask($event)"></app-task-form>
+    <div>
+        <button type="button" class="close" (click)="dialog.close()" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+  </dialog>

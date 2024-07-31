@@ -5,7 +5,22 @@
         </i>
     </span>
     {{task.title}}
+
+    <span class="task-item-buttons float-end text-secondary" (click)="dialog.showModal()">
+        <i class="fa-solid fa-edit"></i>
+    </span>
     <span class="task-item-buttons float-end text-secondary" (click)="onButtonClick('delete',task.id)">
         <i class="fa-solid fa-trash-can"></i>
     </span>
 </span>
+
+
+
+<dialog #dialog>
+    <app-task-form [taskValue]="task" (formCompleteEvent)="updateTask($event)"></app-task-form>
+    <div>
+        <button type="button" class="close" (click)="dialog.close()" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+  </dialog>

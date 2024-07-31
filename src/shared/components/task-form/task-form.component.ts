@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule  } from '@angular/forms';
 import { Task } from '../../interfaces/task.interface';
 
@@ -20,17 +20,26 @@ export class TaskFormComponent {
 
   @Output() formCompleteEvent= new EventEmitter<Task>();
 
+
+
+ngOnChanges(changes: SimpleChanges): void {
+  this.taskForm.setValue(changes['taskValue'].currentValue)
+}
+
+
   taskForm = new FormGroup({
-    id: new FormControl(this.taskValue.id, Validators.required),
-    title: new FormControl(this.taskValue.title, Validators.required),
-    description: new FormControl(this.taskValue.description, [Validators.required]),
-    completed: new FormControl(this.taskValue.completed, [Validators.required])
+    id: new FormControl(0, Validators.required),
+    title: new FormControl('', Validators.required),
+    description: new FormControl('', [Validators.required]),
+    completed: new FormControl(false, [Validators.required])
   });
 
   onSubmit() {
     const formValue = this.generatePayloadData();
     this.formCompleteEvent.emit(formValue)
   }
+
+
 
   private generatePayloadData(): Task {
     const payload: Task = {

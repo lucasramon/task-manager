@@ -5,10 +5,11 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../interfaces/appState.interface';
 import { updateTask } from '../../services/task.actions';
 import { CommonModule } from '@angular/common';
+import { TaskFormComponent } from '../task-form/task-form.component';
 @Component({
   selector: 'app-task-item',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TaskFormComponent],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.css'
 })
@@ -26,7 +27,7 @@ export class TaskItemComponent {
 
 
   updateTask(task: Task) {
-    const updatedTask: Task = { ...task, title: 'Updated Task', description: 'This task has been updated.' };
+    const updatedTask: Task = { ...task };
     this.store.dispatch(updateTask(updatedTask));
   }
 
