@@ -1,0 +1,15 @@
+@if (isNewTask) {
+<app-task-form (formCompleteEvent)="upData($event)"></app-task-form>
+<div>
+    <button type="button" class="close" (click)="dialog.close()" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+} @else {
+<app-task-form [taskValue]="initialStateTask" (formCompleteEvent)="upData($event)"></app-task-form>
+<div>
+    <button type="button" class="close" (click)="dialog.close()" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}

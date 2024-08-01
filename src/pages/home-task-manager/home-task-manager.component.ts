@@ -6,10 +6,11 @@ import { addTask } from '../../shared/services/task.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../shared/interfaces/appState.interface';
 import { Task } from '../../shared/interfaces/task.interface';
+import { FormDialogComponent } from '../../shared/components/form-dialog/form-dialog.component';
 @Component({
   selector: 'app-home-task-manager',
   standalone: true,
-  imports: [ TaskListComponent, TaskFormComponent],
+  imports: [ TaskListComponent, TaskFormComponent, FormDialogComponent],
   templateUrl: './home-task-manager.component.html',
   styleUrl: './home-task-manager.component.css',
   providers:[BsModalService]

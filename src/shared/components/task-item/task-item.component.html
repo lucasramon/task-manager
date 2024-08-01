@@ -15,7 +15,7 @@
 </span>
 
 
-
+<!-- 
 <dialog #dialog>
     <app-task-form [taskValue]="task" (formCompleteEvent)="updateTask($event)"></app-task-form>
     <div>
@@ -23,4 +23,12 @@
             <span aria-hidden="true">&times;</span>
           </button>
     </div>
-  </dialog>
+  </dialog> -->
+
+
+
+<dialog #dialog>
+    <app-form-dialog [initialStateTask]="task" (formCompleteEvent)="updateTask($event)" [dialog]="dialog">
+    </app-form-dialog>
+
+</dialog>

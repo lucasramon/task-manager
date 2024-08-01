@@ -6,10 +6,11 @@ import { AppState } from '../../interfaces/appState.interface';
 import { updateTask } from '../../services/task.actions';
 import { CommonModule } from '@angular/common';
 import { TaskFormComponent } from '../task-form/task-form.component';
+import { FormDialogComponent } from '../form-dialog/form-dialog.component';
 @Component({
   selector: 'app-task-item',
   standalone: true,
-  imports: [CommonModule, TaskFormComponent],
+  imports: [CommonModule, TaskFormComponent, FormDialogComponent],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.css'
 })
