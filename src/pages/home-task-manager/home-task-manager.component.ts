@@ -21,4 +21,8 @@ export class HomeTaskManagerComponent {
   addNewTask(payload: Task) {
     this.store.dispatch(addTask(payload));
   }
+
+  openDialog(dialog: HTMLDialogElement){
+    dialog.showModal()
+  }
 }
