@@ -25,6 +25,16 @@ describe('TaskItemComponent', () => {
     expect(component).toBeTruthy();
   });
 
+
+
+  it('should get the unMark and mark itens as completed or incompleted function when button is clicked', (() => {
+    spyOn(component,'onButtonClick');
+    
+    fixture.debugElement.query(By.css('#checkMark-button')).nativeElement.click();
+    expect(component.onButtonClick).toHaveBeenCalled();
+
+  }));
+
   it('should get the open modal function open when button is clicked', (() => {
     spyOn(component,'openDialog');
     

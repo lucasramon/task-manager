@@ -1,5 +1,5 @@
 <span>
-    <span class="task-item-buttons text-success"
+    <span class="task-item-buttons text-success " id="checkMark-button"
         (click)="task.completed ? onButtonClick('unmarkComplete',task.id): onButtonClick('markComplete',task.id)">
         <i [ngClass]="{'fa-solid fa-circle-check':task.completed, 'fa-regular fa-circle':!task.completed}">
         </i>
