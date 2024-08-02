@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule  } from '@angular/forms';
 import { Task } from '../../interfaces/task.interface';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './task-form.component.html',
   styleUrl: './task-form.component.css'
 })
@@ -24,9 +25,9 @@ ngOnChanges(changes: SimpleChanges): void {
 
   taskForm = new FormGroup({
     id: new FormControl(0, Validators.required),
-    title: new FormControl('', Validators.required),
-    description: new FormControl('', [Validators.required]),
-    completed: new FormControl(false, [Validators.required])
+    title: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    description: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    completed: new FormControl(false, Validators.required)
   });
 
   onSubmit() {

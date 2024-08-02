@@ -1,5 +1,13 @@
-<form [formGroup]="taskForm"  (ngSubmit)="onSubmit()">
-    <input type="text" id="taskTitleId" formControlName="title">
-    <input type="text" id="taskDescriptionId" formControlName="description">
-    <button type="submit" [disabled]="!taskForm.valid">Submit</button>
-  </form>
+<form [formGroup]="taskForm"  class="d-flex flex-column" (ngSubmit)="onSubmit()">
+  <div  class="d-flex flex-column">
+    <label for="taskTitleId">Título</label>
+    <input  class="textInput" type="text" id="taskTitleId"  placeholder="Digite um título para a sua tarefa" formControlName="title"     >
+
+
+    <label for="taskDescriptionId">Descrição</label>
+    <input class="textInput" type="text" id="taskDescriptionId" placeholder="Digite uma descrição para a sua tarefa" formControlName="description">
+    
+  </div>
+
+  <button type="submit" class="submit-button btn btn-secondary btn-lg align-self-end rounded-pill mt-3" [disabled]="!taskForm.valid">Salvar</button>
+</form>

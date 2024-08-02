@@ -1,8 +1,15 @@
-<div data-bs-toggle="popover" class="container position-relative pt-5 ">
-    <h2  class="position-absolute top-0 display-10 fw-bold">{{initialStateTask.id  ? 'Editar Tarefa' : 'Adicionar Tarefa'}}</h2>
-    <app-task-form [taskValue]="initialStateTask" (formCompleteEvent)="emitData($event)"></app-task-form>
-    <button type="button" class="close position-absolute top-0 end-0 border border-1 border-danger rounded-circle btn btn-outline-danger" id="close-modal-button" (click)="closeDialog(dialog)" data-dismiss="modal"
-        aria-label="Close">
-        <span aria-hidden="true">X</span>
-    </button>
+<div class="container position-relative pt-5 ">
+    
+        <h2  class=" position-absolute top-0 display-10 fw-bold">{{initialStateTask.id  ? 'Editar Tarefa' : 'Adicionar Tarefa'}}</h2>
+
+        <button type="button" class="close position-absolute top-0 end-0 border border-1 border-danger rounded-circle btn btn-outline-danger" id="close-modal-button" (click)="closeDialog(dialog)" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">X</span>
+        </button>
+  
+
+
+    <app-task-form [taskValue]="initialStateTask" (formCompleteEvent)="emitData($event, dialog)"></app-task-form>
+
+
 </div>

@@ -1,0 +1,17 @@
+.submit-button:disabled{
+    color: #6c757d;
+    background-color: white;
+    border-color: #6c757d;
+}
+
+form{
+    width: 350px;
+}
+
+.textInput{
+    margin-top: 0.3rem;
+    margin-bottom: 0.5rem; /* mb-2 */
+    border: 1px solid #dee2e6; /* border */
+    padding: 0.5rem; /* py-3 */
+    border-radius: 0.3rem; /* rounded-3 */
+}

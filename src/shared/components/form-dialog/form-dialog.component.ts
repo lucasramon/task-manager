@@ -21,8 +21,9 @@ export class FormDialogComponent {
 
 
 
-  emitData(task: Task) {
+  emitData(task: Task, dialog: HTMLDialogElement) {
     this.formCompleteEvent.emit(task)
+    dialog.close();
   }
 
   closeDialog(dialog: HTMLDialogElement){
