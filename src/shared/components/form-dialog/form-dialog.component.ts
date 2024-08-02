@@ -11,7 +11,6 @@ import { Task } from '../../interfaces/task.interface';
 })
 export class FormDialogComponent {
   @Input() dialog!: HTMLDialogElement;
-  @Input() isNewTask: boolean = false;
   @Output() formCompleteEvent = new EventEmitter<Task>();
   @Input() initialStateTask: Task = {
     id:0,
@@ -22,8 +21,11 @@ export class FormDialogComponent {
 
 
 
-  upData(task: Task) {
+  emitData(task: Task) {
     this.formCompleteEvent.emit(task)
+  }
 
+  closeDialog(dialog: HTMLDialogElement){
+    dialog.close();
   }
 }

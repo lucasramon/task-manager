@@ -11,12 +11,7 @@ import { Task } from '../../interfaces/task.interface';
 })
 export class TaskFormComponent {
 
-  @Input() taskValue: Task = {
-    id:0,
-    title:'',
-    description:'',
-    completed: false
-  }
+  @Input() taskValue: any 
 
   @Output() formCompleteEvent= new EventEmitter<Task>();
 

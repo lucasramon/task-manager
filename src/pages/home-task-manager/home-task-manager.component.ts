@@ -17,6 +17,7 @@ import { FormDialogComponent } from '../../shared/components/form-dialog/form-di
  
 })
 export class HomeTaskManagerComponent {
+  
   constructor(private store: Store<AppState>) { }
   addNewTask(payload: Task) {
     this.store.dispatch(addTask(payload));
