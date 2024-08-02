@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {  ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 
 import { HomeTaskManagerComponent } from './home-task-manager.component';
@@ -7,7 +7,6 @@ import { findComponent } from '../../shared/utils/testing-helpers';
 describe('HomeTaskManagerComponent', () => {
   let homeTaskComponent: HomeTaskManagerComponent;
   let fixture: ComponentFixture<HomeTaskManagerComponent>;
-  let dialog: HTMLDialogElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

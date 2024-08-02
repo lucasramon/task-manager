@@ -13,7 +13,6 @@ import { CommonModule } from '@angular/common';
 export class TaskFormComponent {
 
   @Input() taskValue: any 
-
   @Output() formCompleteEvent= new EventEmitter<Task>();
 
 

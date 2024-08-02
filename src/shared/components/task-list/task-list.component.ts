@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../../interfaces/task.interface';
-import { taskSelector } from '../../services/task.selectors';
 import { AppState } from '../../interfaces/appState.interface';
 import { Store } from '@ngrx/store';
 import { addTask, updateTask, deleteTask, markTaskAsComplete, unmarkTaskAsComplete } from '../../services/task.actions';

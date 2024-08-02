@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TaskItemComponent } from './task-item.component';
 import { provideMockStore } from '@ngrx/store/testing';
 import { By } from '@angular/platform-browser';

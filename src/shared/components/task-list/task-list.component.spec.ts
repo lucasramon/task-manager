@@ -1,16 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TaskListComponent } from './task-list.component';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 import { By } from "@angular/platform-browser";
-import { map, of } from 'rxjs';
 import { TaskItemComponent } from '../task-item/task-item.component';
-import { createComponent, findComponent } from '../../utils/testing-helpers';
-import { AppState } from '../../interfaces/appState.interface';
-import { Store } from '@ngrx/store';
-import { taskSelector } from '../../services/task.selectors';
-import { Task } from '../../interfaces/task.interface';
-import { Component, Input } from '@angular/core';
+import { findComponent } from '../../utils/testing-helpers';
 
 describe('TaskListComponent', () => {
   let component: TaskListComponent;
@@ -62,10 +56,10 @@ describe('TaskListComponent', () => {
     fixture.detectChanges();
 
     expect(component.tasks.length).toBe(3);
-    
+
     const taskListComponent = findComponent(fixture, 'app-task-item');
     expect(taskListComponent).toBeTruthy();
-  
+
   })
 
   it('should render a task-list component with a empty list message', () => {
