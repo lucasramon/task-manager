@@ -1,5 +1,5 @@
 <form [formGroup]="taskForm"  (ngSubmit)="onSubmit()">
-    <input type="text" formControlName="title">
-    <input type="text" formControlName="description">
+    <input type="text" id="taskTitleId" formControlName="title">
+    <input type="text" id="taskDescriptionId" formControlName="description">
     <button type="submit" [disabled]="!taskForm.valid">Submit</button>
   </form>
