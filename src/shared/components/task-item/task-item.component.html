@@ -1,18 +1,22 @@
-<span>
-    <span class="task-item-buttons text-success " id="checkMark-button"
+<div>
+    <span class="task-item-buttons text-success mx-1 " id="checkMark-button"
         (click)="task.completed ? onButtonClick('unmarkComplete',task.id): onButtonClick('markComplete',task.id)">
         <i [ngClass]="{'fa-solid fa-circle-check':task.completed, 'fa-regular fa-circle':!task.completed}">
         </i>
     </span>
-    {{task.title}}
+    <span class="myTooltip">
+        <span class="myTooltiptext px-2">{{task.description}}</span>
+        {{task.title}}</span>
 
-    <span class="task-item-buttons float-end text-secondary" id="open-edit-button" (click)="openDialog(dialog)">
+    <span class="task-item-buttons float-end text-secondary mx-1" id="open-edit-button" (click)="openDialog(dialog)">
         <i class="fa-solid fa-edit"></i>
     </span>
-    <span class="task-item-buttons float-end text-secondary" id="delete-button" (click)="onButtonClick('delete',task.id)">
+    <span class="task-item-buttons float-end text-secondary mx-1" id="delete-button"
+        (click)="onButtonClick('delete',task.id)">
         <i class="fa-solid fa-trash-can"></i>
     </span>
-</span>
+</div>
+
 
 <dialog #dialog>
     <app-form-dialog [initialStateTask]="task" (formCompleteEvent)="updateTask($event)" [dialog]="dialog">

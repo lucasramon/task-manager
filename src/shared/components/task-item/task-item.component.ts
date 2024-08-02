@@ -39,5 +39,4 @@ export class TaskItemComponent {
   openDialog(dialog: HTMLDialogElement){
     dialog.showModal()
   }
-
 }

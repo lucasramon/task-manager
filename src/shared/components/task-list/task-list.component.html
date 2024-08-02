@@ -1,7 +1,7 @@
 <ul class="list-group">
   @for ( task of tasks$ | async; track $index) {
-  <li class="list-group-item mb-2 border py-3 rounded-3">
-    <app-task-item [task]="task" (clickButtonEvent)="buttonClickHandle($event)"></app-task-item>
+  <li class="list-group-item mb-2 border py-3 rounded-3 d-flex">
+    <app-task-item [task]="task" (clickButtonEvent)="buttonClickHandle($event)" class="w-100"></app-task-item>
   </li>
   } @empty {
   <div class=" text-center py-4 border-0">
@@ -14,4 +14,3 @@
 
 
 
-<!-- <app-task-form (formCompleteEvent)="addNewTask($event)"></app-task-form> -->

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TaskListComponent } from "../../shared/components/task-list/task-list.component";
-import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { TaskFormComponent } from '../../shared/components/task-form/task-form.component';
 import { addTask } from '../../shared/services/task.actions';
 import { Store } from '@ngrx/store';
@@ -13,7 +12,7 @@ import { FormDialogComponent } from '../../shared/components/form-dialog/form-di
   imports: [ TaskListComponent, TaskFormComponent, FormDialogComponent],
   templateUrl: './home-task-manager.component.html',
   styleUrl: './home-task-manager.component.css',
-  providers:[BsModalService]
+  providers:[]
  
 })
 export class HomeTaskManagerComponent {
