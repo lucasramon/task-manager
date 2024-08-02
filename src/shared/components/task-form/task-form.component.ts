@@ -37,11 +37,6 @@ ngOnChanges(changes: SimpleChanges): void {
     this.taskForm.clearValidators();
   }
 
-  checkChanges(){
-    console.log('aaaaa')
-    console.log(this.taskForm)
-  }
-
 
   private generatePayloadData(): Task {
     const payload: Task = {

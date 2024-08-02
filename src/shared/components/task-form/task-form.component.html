@@ -1,7 +1,7 @@
 <form [formGroup]="taskForm"  class="d-flex flex-column" (ngSubmit)="onSubmit()">
   <div  class="d-flex flex-column">
     <label for="taskTitleId">Título</label>
-    <input  class="textInput" type="text" id="taskTitleId" (change)="checkChanges()"  placeholder="Digite um título para a sua tarefa" formControlName="title"     >
+    <input  class="textInput" type="text" id="taskTitleId"  placeholder="Digite um título para a sua tarefa" formControlName="title"     >
 
 
     <label for="taskDescriptionId">Descrição</label>
