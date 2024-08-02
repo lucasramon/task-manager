@@ -8,19 +8,19 @@ const initialState: Task[] = [
     {
         "id": 1,
         "title": "Lavar a louça.",
-        "description": "A louça está suja na pia, vai lavar logo.",
+        "description": "vai lavar logo.",
         "completed": false
     },
     {
         "id": 2,
         "title": "Fazer a feira.",
-        "description": "Estão faltando coisas na casa, e os meus amigos vem pra cá em breve. Lembrar de comprar cerveja.",
+        "description": "Estão faltando coisas na casa.",
         "completed": true
     },
     {
         "id": 3,
         "title": "Limpar a casa.",
-        "description": "A casa precisa ser limpa.",
+        "description": "A casa precisa ser limpa. Os meus amigos vem pra cá em breve. Lembrar de comprar cerveja",
         "completed": false
     },
 ]
