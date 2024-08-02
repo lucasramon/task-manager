@@ -4,9 +4,16 @@
         <i [ngClass]="{'fa-solid fa-circle-check':task.completed, 'fa-regular fa-circle':!task.completed}">
         </i>
     </span>
+    @if(!task.completed){
     <span class="myTooltip">
         <span class="myTooltiptext px-2">{{task.description}}</span>
         {{task.title}}</span>
+    } @else {
+        <s class="myTooltip">
+            <span class="myTooltiptext px-2">{{task.description}}</span>
+            {{task.title}}</s>
+    }
+
 
     <span class="task-item-buttons float-end text-secondary mx-1" id="open-edit-button" (click)="openDialog(dialog)">
         <i class="fa-solid fa-edit"></i>
