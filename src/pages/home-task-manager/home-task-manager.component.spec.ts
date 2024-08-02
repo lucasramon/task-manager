@@ -39,7 +39,7 @@ describe('HomeTaskManagerComponent', () => {
   }));
 
 
-  it('renders task list component that is called from the home task manager component', () => {
+  it('renders task-list-component that is called from the home-task-manager-component', () => {
     const taskListComponent = findComponent(fixture, 'app-task-list');
     expect(taskListComponent).toBeTruthy();
   });

@@ -1,11 +1,11 @@
 <ul class="list-group">
-  @for ( task of tasks$ | async; track $index) {
+  @for ( task of tasks; track $index) {
   <li class="list-group-item mb-2 border py-3 rounded-3 d-flex">
     <app-task-item [task]="task" (clickButtonEvent)="buttonClickHandle($event)" class="w-100"></app-task-item>
   </li>
   } @empty {
   <div class=" text-center py-4 border-0">
-    <p class="display-6 ">Lista de tarefas vazia</p>
+    <p class="empty-list display-6 ">Lista de tarefas vazia</p>
   </div>
   }
 </ul>

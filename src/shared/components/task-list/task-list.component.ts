@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Task } from '../../interfaces/task.interface';
 import { taskSelector } from '../../services/task.selectors';
 import { AppState } from '../../interfaces/appState.interface';
@@ -15,9 +15,14 @@ import { TaskFormComponent } from '../task-form/task-form.component';
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.css'
 })
+
+
+
 export class TaskListComponent {
-  tasks$ = this.store.select(taskSelector);
+  @Input() tasks: Task[] = [];
+
   constructor(private store: Store<AppState>) { }
+  
 
   addNewTask(payload: Task) {
     this.store.dispatch(addTask(payload));
