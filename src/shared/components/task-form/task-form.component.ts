@@ -23,17 +23,24 @@ ngOnChanges(changes: SimpleChanges): void {
 
 
   taskForm = new FormGroup({
-    id: new FormControl(0, Validators.required),
+    id: new FormControl(0),
     title: new FormControl('', [Validators.required, Validators.minLength(3)]),
     description: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    completed: new FormControl(false, Validators.required)
+    completed: new FormControl(false)
   });
 
   onSubmit() {
+ 
     const formValue = this.generatePayloadData();
-    this.formCompleteEvent.emit(formValue)
+    this.formCompleteEvent.emit(formValue);
+    this.taskForm.reset();
+    this.taskForm.clearValidators();
   }
 
+  checkChanges(){
+    console.log('aaaaa')
+    console.log(this.taskForm)
+  }
 
 
   private generatePayloadData(): Task {

@@ -23,7 +23,6 @@ const initialState: Task[] = [
         "description": "A casa precisa ser limpa.",
         "completed": false
     },
-
 ]
 
 const getNewTaskId = (state: Task[]) => {
