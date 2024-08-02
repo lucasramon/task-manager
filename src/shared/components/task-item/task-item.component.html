@@ -6,26 +6,13 @@
     </span>
     {{task.title}}
 
-    <span class="task-item-buttons float-end text-secondary" (click)="dialog.showModal()">
+    <span class="task-item-buttons float-end text-secondary" id="open-edit-button" (click)="openDialog(dialog)">
         <i class="fa-solid fa-edit"></i>
     </span>
-    <span class="task-item-buttons float-end text-secondary" (click)="onButtonClick('delete',task.id)">
+    <span class="task-item-buttons float-end text-secondary" id="delete-button" (click)="onButtonClick('delete',task.id)">
         <i class="fa-solid fa-trash-can"></i>
     </span>
 </span>
-
-
-<!-- 
-<dialog #dialog>
-    <app-task-form [taskValue]="task" (formCompleteEvent)="updateTask($event)"></app-task-form>
-    <div>
-        <button type="button" class="close" (click)="dialog.close()" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-    </div>
-  </dialog> -->
-
-
 
 <dialog #dialog>
     <app-form-dialog [initialStateTask]="task" (formCompleteEvent)="updateTask($event)" [dialog]="dialog">

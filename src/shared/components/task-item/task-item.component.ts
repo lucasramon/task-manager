@@ -36,4 +36,8 @@ export class TaskItemComponent {
     this.clickButtonEvent.emit({buttonType,taskId});
   }
 
+  openDialog(dialog: HTMLDialogElement){
+    dialog.showModal()
+  }
+
 }
